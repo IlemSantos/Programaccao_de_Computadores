@@ -11,19 +11,13 @@
  */
 class AreaCasa {
     public static void main(String[]args){
-        //@version 3
-        /*VANTAGEM?
-        *Reduz nossa dependência a valores extrenos: antes eram 3(10,7e5),agora são 2(10e7)
-        *Reduz a chance de erros na substituição
-        *DESVANTAGEM?
-        *Gasta mais memória,com as variáveis lateral e cquato
-        */
-        int lateral = 10; //comprimento da lateral da cabana
-        int cquarto = 7; //comprimento da lateral maior do quarto
-        int areaq; //área do quarto
-        int areas; //área da sala
-        int areat; //área total
-        System.out.println("@version 3");
+        //@version 4
+        float lateral = 11;//comprimento da lateral da cabana alterado
+        float cquarto = 7;//comprimento da lateral maior do quarto
+        float areaq;//área do quarto
+        float areas;//área da sala
+        float areat;//área total
+        System.out.println("@version 4");
         System.out.println("Programa para cálculo da área da casa");
         areas = lateral*lateral;
         System.out.println("A área da sala é " + areas);
