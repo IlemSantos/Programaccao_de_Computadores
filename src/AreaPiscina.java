@@ -11,8 +11,7 @@ public class AreaPiscina {
         public static void main(String[]args){
             double raio = 2; //raio da piscina
             double areap; //área da piscina
-            final double pi = 3.14159; //valor de pi.'final' tornar o valor constante
-            areap = pi*raio*raio;
-            
+            areap = Math.PI*Math.pow(raio,2);
+            System.out.println("A área da piscina é " +areap);
         }
 }
