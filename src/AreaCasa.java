@@ -11,12 +11,18 @@
  */
 class AreaCasa {
     public static void main(String[]args){
-        //@version 1
-        System.out.println("@version 1");
+        //@version 2
+        int areaq; //área do quarto
+        int areas; //área da sala
+        int areat; //área total
+        System.out.println("\n@version 2");
         System.out.println("Programa para cálculo da área da casa");
-        System.out.println("A área da sala é "+10*10);
-        System.out.println("A área do quarto é "+5*7);
-        System.out.println("A área do banheiro é "+5*7);
-        System.out.println("A área total é "+ (10*10 + 5*7 + 5*7));
+        areas = 10*10;
+        System.out.println("A área da sala é "+ areas);
+        areaq = 5*7;
+        System.out.println("A área do quarto é "+ areaq);
+        System.out.println("A área do banheiro é "+ areaq);
+        areat= areas + 2*areaq;
+        System.out.println("A área total é "+ areat);
    }
 }
