@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-/**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 10X10m,
- * um banheiro e um quarto de 5X7m cada.
+/**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
+ * um banheiro e um quarto de 5.5X7m cada.
  * @author Ilem Santos
  * @version 1
  */
