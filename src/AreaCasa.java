@@ -5,12 +5,14 @@
  */
 
 /**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
- * um banheiro e um quarto de 5.5X7m cada) é uma piscina.
- * Programa com o uso de Métodos é Parâmentos.
+ * um banheiro e um quarto de 5.5X7m cada), piscina é o valor da construção.
+ * Programa com o uso de Métodos,Parâmentos é Atributos.
  * @author Ilem Santos
- * @version 4
+ * @version 5
  */
 class AreaCasa {
+    static double valorM2 = 1500;//Atributo
+    
     //Método areaCasa com uso parâmetro
     static void areaCasa(float lateral,float cquarto){ 
 	float areaq;
@@ -31,14 +33,23 @@ class AreaCasa {
     static double areaPiscina(double raio){
 	return(Math.PI * Math.pow(raio,2));
     }
+    
+    //Método valor
+    static double valor(double area){
+        return(valorM2*area);
+    }
          
     public static void main(String[] args){
 	double areap;
+        double preco;
 		
 	areaCasa(11,7); //a partir deste ponto,chamar o método areaCasa é executar o método com uso de parâmetro.
 						
 	areap = areaPiscina(2); //Note que areaPiscina() retorna valor,então guardamos esse valor em areap com uso de parâmetro
 		
 	System.out.println("A área da piscina é "+areap);
+        
+        preco = valor(-20);
+        System.out.println("O valor da construção é "+preco);
    }
 }
