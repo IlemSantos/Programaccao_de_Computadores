@@ -6,37 +6,39 @@
 
 /**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
  * um banheiro e um quarto de 5.5X7m cada), piscina é o valor da construção.
- * Programa com o uso de Métodos,Parâmentos é Atributos.
+ * Programa com o uso de Métodos,Parâmentos,Atributos é Condicionais.
  * @author Ilem Santos
- * @version 5
+ * @version 6
  */
 class AreaCasa {
     static double valorM2 = 1500;//Atributo
     
-    //Método areaCasa com uso parâmetro
+    //Método areaCasa com uso de parâmetro
     static void areaCasa(float lateral,float cquarto){ 
 	float areaq;
 	float areas;
 	float areat;
 
 	System.out.println("Programa para cálculo da área da casa e da piscina");
-	areas =lateral*lateral;
-	System.out.println("A área da sala é "+areas);
+	areas = lateral*lateral;
+	System.out.println("A área da sala é "+ areas);
 	areaq = cquarto*(lateral/2);
-	System.out.println("A área do quarto é "+areaq);
-	System.out.println("A área do banheiro é "+areaq);
+	System.out.println("A área do quarto é "+ areaq);
+	System.out.println("A área do banheiro é "+ areaq);
 	areat= areas + 2*areaq;
-	System.out.println("A área total é "+areat);
+	System.out.println("A área total é "+ areat);
     }
 
     //Método areaPiscina agora deve receber um valor(argumento) em seu parâmetro.
     static double areaPiscina(double raio){
-	return(Math.PI * Math.pow(raio,2));
+        if (raio >= 0) return(Math.PI * Math.pow(raio,2));
+        return(-1);//erro -1
     }
     
     //Método valor
     static double valor(double area){
-        return(valorM2*area);
+        if (area >= 0) return(valorM2*area);
+        return(-1);//erro -1
     }
          
     public static void main(String[] args){
@@ -50,6 +52,7 @@ class AreaCasa {
 	System.out.println("A área da piscina é "+areap);
         
         preco = valor(-20);
-        System.out.println("O valor da construção é "+preco);
+        if (preco >= 0) System.out.println("O valor da construção é "+preco);
+        else System.out.println("Valor da área negativo");
    }
 }
