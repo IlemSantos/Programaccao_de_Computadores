@@ -8,10 +8,10 @@
  * @author Ilem Santos
  */
 public class AreaPiscina {
-        public static void main(String[]args){
-            double raio = 2; //raio da piscina
-            double areap; //área da piscina
-            areap = Math.PI*Math.pow(raio,2);
-            System.out.println("A área da piscina é " +areap);
-        }
+    public static void main(String[]args){
+        double raio = 2; //raio da piscina
+        double areap; //área da piscina
+        areap = Math.PI*Math.pow(raio,2);
+        System.out.println("A área da piscina é " +areap);
+    }
 }
