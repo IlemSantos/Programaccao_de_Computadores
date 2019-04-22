@@ -5,9 +5,10 @@
  */
 
 /**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
- * um banheiro e um quarto de 5.5X7m cada.
+ * um banheiro e um quarto de 5.5X7m cada) é uma piscina.
+ * Programa com junção dois programas AreaCasa é AreaPiscina.
  * @author Ilem Santos
- * @version 1
+ * @version 2
  */
 class AreaCasa {
     public static void main(String[]args){
@@ -17,7 +18,7 @@ class AreaCasa {
         float areaq;//área do quarto
         float areas;//área da sala
         float areat;//área total
-        System.out.println("@version 4");
+        
         System.out.println("Programa para cálculo da área da casa");
         areas = lateral*lateral;
         System.out.println("A área da sala é " + areas);
@@ -26,5 +27,10 @@ class AreaCasa {
         System.out.println("A área do banheiro é " +areaq);
         areat= areas + 2*areaq;
         System.out.println("A área total é " +areat);
+        
+        double raio = 2; //raio da piscina
+        double areap; //área da piscina
+        areap = Math.PI*Math.pow(raio,2);
+        System.out.println("A área da piscina é " +areap);
    }
 }
