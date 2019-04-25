@@ -6,9 +6,9 @@
 
 /**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
  * um banheiro e um quarto de 5.5X7m cada), piscina é o valor da construção.
- * Programa com o uso de Métodos,Parâmentos,Atributos, Condicionais Aninhados, operador '?' é Switch.
+ * Programa com o uso de Métodos,Parâmentos,Atributos, Condicionais Aninhados,operador '?' é Switch.
  * @author Ilem Santos
- * @version 9
+ * @version 8
  */
 public class AreaCasa {
     static double valorM2 = 1500;//Atributo
@@ -86,18 +86,10 @@ public class AreaCasa {
         
         System.out.println("Valor da construção vinil "+valorPiscina(100,1));
 
-        System.out.println("Material\t\tValor");
-        
-        //Agora poder comparar vários tamanhos de pisicna é de material.A cada area 50M2.
-        while(area <= 200){
-            tipo = ALVENARIA;
-            while(tipo <= PLASTICO){
-                System.out.println(area+"\t"+tipo+"\t\t"+valorPiscina(area,tipo));
-                tipo++; 
-            }
-            System.out.print("\n");
-            area += 50;
+        System.out.println("Material \t\tValor");
+        while(tipo <= PLASTICO){
+            System.out.println(tipo+"\t\t"+valorPiscina(area,tipo));
+            tipo ++;
         }
    }
 }
-    
