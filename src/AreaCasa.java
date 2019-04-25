@@ -6,12 +6,16 @@
 
 /**Programa para calcular a área de uma casa(e seus cômodos:uma sala de 11X11m,
  * um banheiro e um quarto de 5.5X7m cada), piscina é o valor da construção.
- * Programa com o uso de Métodos,Parâmentos,Atributos, Condicionais Aninhados é operador '?'.
+ * Programa com o uso de Métodos,Parâmentos,Atributos, Condicionais Aninhados, operador '?' é Switch.
  * @author Ilem Santos
- * @version 7
+ * @version 9
  */
 public class AreaCasa {
     static double valorM2 = 1500;//Atributo
+    static final int ALVENARIA = 0;
+    static final int VINIL = 1;
+    static final int FIBRA = 2;
+    static final int PLASTICO = 3;
     
     //Método areaCasa com uso de parâmetro
     static void areaCasa(float lateral,float cquarto){
@@ -41,10 +45,35 @@ public class AreaCasa {
     static double valor(double area){
         return((area >= 0) ? (valorM2*area):(-1));//O operador '?'
     }
+    /**Método valorPiscina para calcular custo da construção da piscina.
+    * O método foi utilizado o Switch.
+    */
+    static double valorPiscina(double area,int material){
+        double valor;
+        switch (material){
+            case ALVENARIA :
+                valor = 1500;
+                break;
+            case VINIL:
+                valor = 1100;
+                break;
+            case FIBRA:
+                valor = 750;
+                break;
+            case PLASTICO:
+                valor = 500;
+                break;
+            default:
+                valor = -1;
+        }
+        return(area*valor);
+    }
          
     public static void main(String[] args){
 	double areap;
         double preco;
+        double area = 100;
+        int tipo = ALVENARIA;
 		
 	areaCasa(11,7); //a partir deste ponto,chamar o método areaCasa é executar o método com uso de parâmetro.
 						
@@ -54,5 +83,21 @@ public class AreaCasa {
         preco = valor(20);
         if (preco >= 0) System.out.println("O valor da construção é "+preco);
         else System.out.println("Valor da área negativo");
+        
+        System.out.println("Valor da construção vinil "+valorPiscina(100,1));
+
+        System.out.println("Material\t\tValor");
+        
+        //Agora poder comparar vários tamanhos de pisicna é de material.A cada area 50M2.
+        while(area <= 200){
+            tipo = ALVENARIA;
+            while(tipo <= PLASTICO){
+                System.out.println(area+"\t"+tipo+"\t\t"+valorPiscina(area,tipo));
+                tipo++; 
+            }
+            System.out.print("\n");
+            area += 50;
+        }
    }
 }
+    
