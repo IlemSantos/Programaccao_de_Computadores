@@ -8,10 +8,10 @@
  * um banheiro e um quarto de 5.5X7m cada), piscina e o valor da construção.
  * Programa com o uso de Métodos, Parâmetros, Atributos, Condicionais, operador '?', For Aninhado e Matriz.
  *
- * @version 13
+ * @version 12
  * @author Ilem Santos
  */
-public class AreaCasa_V12 {
+public class AreaCasa_V11 {
 
     /* valor do metro quadrado da casa */
     static double valorM2 = 1500;
