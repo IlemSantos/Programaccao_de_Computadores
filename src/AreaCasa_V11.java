@@ -13,13 +13,34 @@
  */
 public class AreaCasa_V11 {
 
-    static double valorM2 = 1500;//Atributo
+    /* valor do metro quadrado da casa */
+    static double valorM2 = 1500;
+    /* materiais da piscina */
     static final int ALVENARIA = 0;
     static final int VINIL = 1;
     static final int FIBRA = 2;
     static final int PLASTICO = 3;
 
-    //Método areaCasa com uso de parâmetro
+    /* preços dos materiais para construção da piscina */
+    static double[] precos = {1500, 1100, 750, 500};
+
+    /* nomes dos materiais da piscina. */
+    static char[][] nomes = {{'A', 'l', 'v', 'e', 'r', 'n', 'a', 'r', 'i', 'a'}, {'V', 'i', 'n', 'i', 'l'}, {'F', 'i', 'b', 'r', 'a'}, {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}};
+
+    /* Calcula a área da piscina */
+    static double areaPiscina(double raio) {
+        return (raio >= 0) ? (Math.PI * Math.pow(raio, 2)) : (-1);//O operador '?'
+    }
+
+    /* Calcula o valor da construção da piscina */
+    static double valorPiscina(double area, int material) {
+        if (material < ALVENARIA || material > PLASTICO || area < 0) {
+            return (-1);
+        }
+        return (area * precos[material]);
+    }
+
+    /* Calcula a área da casa */
     static void areaCasa(float lateral, float cquarto) {
         if (lateral >= 0 && cquarto >= 0) {
             float areaq;
@@ -39,31 +60,12 @@ public class AreaCasa_V11 {
         }
     }
 
-    //Método valor
-    static double valor(double area) {
+    /* Calcula o valor total da construção */
+    static double valorCasa(double area) {
         return ((area >= 0) ? (valorM2 * area) : (-1));//O operador '?'
     }
 
-    //Método areaPiscina agora deve receber um valor(argumento) em seu parâmetro.
-    static double areaPiscina(double raio) {
-        return (raio >= 0) ? (Math.PI * Math.pow(raio, 2)) : (-1);//O operador '?'
-    }
-
-    //Arranjo dos preços dos materiais para construção da piscina.
-    static double[] precos = {1500, 1100, 750, 500};
-
-    //Método valorPiscina para calcular custo da construção da piscina.
-    static double valorPiscina(double area, int material) {
-        if (material < ALVENARIA || material > PLASTICO || area < 0) {
-            return (-1);
-        }
-        return (area * precos[material]);
-    }
-
-    //Matriz dos nomes dos materiais da piscina.
-    static char[][] nomes = {{'A', 'l', 'v', 'e', 'r', 'n', 'a', 'r', 'i', 'a'}, {'V', 'i', 'n', 'i', 'l'}, {'F', 'i', 'b', 'r', 'a'}, {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}};
-
-    //Carrega os valores das piscinas na matriz de área X material.
+    /* Carrega os valores das piscinas na matriz de área X material. */
     public static void carregaVal(double[][] m) {
         for (int i = 0; i < m.length; i++) {
             for (int j = 50; j <= 200; j += 50) {
@@ -83,7 +85,7 @@ public class AreaCasa_V11 {
         areap = areaPiscina(2); //Note que areaPiscina() retorna valor, então guardamos esse valor em areap com uso de parâmetro
         System.out.println("A área da piscina é " + areap);
 
-        preco = valor(20);
+        preco = valorCasa(20);
         if (preco >= 0) {
             System.out.println("O valor da construção é " + preco);
         } else {
@@ -95,10 +97,6 @@ public class AreaCasa_V11 {
         }
         media = media / precos.length;
         System.out.println("O preço médio dos materiais de construção da piscina é " + media);
-
-        System.out.print("Piscina de ");
-        System.out.print(nomes[2]);
-        System.out.println(": " + valorPiscina(100, FIBRA));
 
         carregaVal(valores);
 
