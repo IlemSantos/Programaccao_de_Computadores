@@ -7,19 +7,43 @@ public class AreaPiscina {
     static final int FIBRA = 2;
     static final int PLASTICO = 3;
 
-    /* preços dos materiais para construção da piscina */
-    static double[] precos = {1500, 1100, 750, 500};
+    public double[] precos;
+    public double raio;
 
     /* nomes dos materiais da piscina. */
     static char[][] nomes = {{'A', 'l', 'v', 'e', 'r', 'n', 'a', 'r', 'i', 'a'}, {'V', 'i', 'n', 'i', 'l'}, {'F', 'i', 'b', 'r', 'a'}, {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}};
 
+    /* Construtores */
+    /* Construtor padrão do preços dos materiais para construção da piscina */
+    AreaPiscina() {
+        double[] aux = {1500, 1100, 750, 500};
+        this.precos = aux;
+        this.raio = 10;
+    }
+
+    /* Construtor do preços dos materiais para construção da piscina */
+    AreaPiscina(double[] precos) {
+        this.precos = precos;
+        this.raio = 10;
+    }
+
+    AreaPiscina(double raio) {
+        this();
+        this.raio = raio;
+    }
+
+    AreaPiscina(double[] precos, double raio) {
+        this.precos = precos;
+        this.raio = raio;
+    }
+
     /* Calcula a área da piscina */
-    static double area(double raio) {
-        return (raio >= 0) ? (Math.PI * Math.pow(raio, 2)) : (-1);//O operador '?'
+    double area() {
+        return (this.raio >= 0) ? (Math.PI * Math.pow(this.raio, 2)) : (-1);//O operador '?'
     }
 
     /* Calcula o valor da construção da piscina */
-    static double valor(double area, int material) {
+    double valor(double area, int material) {
         if (material < ALVENARIA || material > PLASTICO || area < 0) {
             return (-1);
         }
@@ -27,7 +51,7 @@ public class AreaPiscina {
     }
 
     /* Carrega os valores das piscinas na matriz de área X material. */
-    public static void carregaVal(double[][] m) {
+    void carregaVal(double[][] m) {
         for (int i = 0; i < m.length; i++) {
             for (int j = 50; j <= 200; j += 50) {
                 m[i][j / 50 - 1] = valor(j, i);

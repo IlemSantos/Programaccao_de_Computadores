@@ -1,25 +1,39 @@
 
 public class AreaCasa {
 
-    double valorM2;
+    /* valor do metro quadrado da casa */
+    double valorM2 = 1500;
 
-    /* Construtor que chama outro constrtor */
+    /* comprimento da lateral da sala */
+    double lateral = 10;
+
+    /* comprimento da lateral maior do quarto */
+    double cquarto = 10;
+
+    /* Construtores */
     AreaCasa() {
-        this(1500.0); // chamar outro construtor com parâmetro
     }
 
-    /* Construtor padrão */
     AreaCasa(double valorM2) {
         this.valorM2 = valorM2;
     }
 
+    AreaCasa(double lateral, double cquarto) {
+        this.lateral = lateral;
+        this.cquarto = cquarto;
+    }
+
+    AreaCasa(double lateral, double cquarto, double valorM2) {
+        this(lateral, cquarto);
+        this.valorM2 = valorM2;
+    }
 
     /* Calcula a área da casa */
-    double area(double lateral, double cquarto) {
+    double area() {
         double areat = -1;    // área total
-        if (lateral >= 0 && cquarto >= 0) {
-            areat = lateral * lateral;
-            areat += cquarto * lateral;
+        if (this.lateral >= 0 && this.cquarto >= 0) {
+            areat = this.lateral * this.lateral;
+            areat += this.cquarto * this.lateral;
 
         }
         return (areat);
@@ -27,6 +41,6 @@ public class AreaCasa {
 
     /* Calcula o valor total da construção */
     double valor(double area) {
-        return ((area >= 0) ? (valorM2 * area) : (-1));//O operador '?'
+        return ((area >= 0) ? (this.valorM2 * area) : (-1));//O operador '?'
     }
 }
