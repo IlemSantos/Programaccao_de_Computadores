@@ -1,16 +1,20 @@
 
 public class Projeto {
 
-    static double area(AreaCasa casa, AreaPiscina piscina) {
-        return (casa.area() + piscina.area());
+    Residencia[] condominio;
+    int ultimo = -1; // último alocado
+
+    boolean adicionaRes(Residencia r) {
+        if (this.ultimo < this.condominio.length - 1) {
+            ultimo++;
+            this.condominio[ultimo] = r;
+            return (true);
+        }
+        return (false);
     }
 
-    public static void main(String[] args) {
-        AreaCasa casa1 = new AreaCasa(10, 5);
-        AreaCasa casa2 = new AreaCasa(20, 5);
-        AreaPiscina piscina1 = new AreaPiscina(10);
-
-        System.out.println(area(casa1, piscina1));
+    Projeto(int tam) {
+        condominio = new Residencia[tam];
     }
 
 }
